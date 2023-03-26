@@ -131,6 +131,7 @@
         minlength="8"
         maxlength="9"
         (blur)="consultaCEP($event, f)"
+        validadorCEP
       />
       <div id="erro" *ngIf="(cep?.invalid && cep?.touched) || cep?.dirty">
         <app-mensagem
@@ -143,6 +144,10 @@
           mensagem="Cep inválido! Exemplo: 30590-130"
         >
         </app-mensagem>
+        <app-mensagem
+          *ngIf="cep?.errors?.['validadorCEP']"
+          mensagem="O CEP informado não é válido ou não existe!"
+        ></app-mensagem>
       </div>
     </div>
 
